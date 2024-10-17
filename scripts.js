@@ -149,3 +149,29 @@ const menuToggle = document.getElementById('menuToggle');
         navbarLinks.classList.toggle('active');
     });
 
+const form = document.getElementById('contactForm');
+    
+form.addEventListener('submit', async (e) => {
+    e.preventDefault(); // Prevent the default form submission
+
+    const formData = new FormData(form);
+
+    try {
+        const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+
+        if (response.ok) {
+            alert("Thank you for your message! We'll get back to you soon.");
+            form.reset(); // Clear the form after submission
+        } else {
+            alert("Oops! Something went wrong. Please try again.");
+        }
+    } catch (error) {
+        alert("There was a problem submitting the form.");
+    }
+});

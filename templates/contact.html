@@ -305,17 +305,7 @@
         <div class="contact-container">
             <div class="contact-form">
                 <h2>Get a Free Quote</h2>
-                <!-- Flash message for form submission status -->
-                {% with messages = get_flashed_messages(with_categories=true) %}
-                    {% if messages %}
-                        <ul>
-                            {% for category, message in messages %}
-                                <li class="{{ category }}">{{ message }}</li>
-                            {% endfor %}
-                        </ul>
-                    {% endif %}
-                {% endwith %}
-                <form id="contactForm" action="/send-email" method="POST">
+                <form id="contactForm" action="https://formspree.io/f/mqakkwev" method="POST">
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="name" required>
                     
