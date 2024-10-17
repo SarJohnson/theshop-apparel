@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!-- Favicon for browsers -->
+        <link rel="icon" href="../static/imgs/favicon.ico" type="image/x-icon">
+        <!-- High resolution favicon for modern devices -->
+        <link rel="icon" href="../static/imgs/favicon-32x32.png" sizes="32x32" type="image/png">
+        <link rel="icon" href="../static/imgs/favicon-16x16.png" sizes="16x16" type="image/png">
+        <!-- Favicon for Apple devices -->
+        <link rel="apple-touch-icon" href="../static/imgs/apple-touch-icon.png">
+        <title>Apparel Store</title>
+        <style>
+            /* General Styling */
+                body {
+                    font-family: 'Arial', sans-serif;
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                    background-color: white; /* White background for the entire site */
+                    color: black; /* Default text color */
+                }
+
+            /* Navigation */
+                header {
+                    background-color: black; /* Black background for navbar */
+                    padding: 10px 0;
+                    text-align: center;
+                    position: fixed; /* Pin the navbar to the top */
+                    top: 0; /* Align the navbar to the top of the viewport */
+                    width: 100%; /* Ensure the navbar spans the full width */
+                    z-index: 1000; /* Ensure the navbar stays above other content */
+                }
+
+            /* Style for the logo */
+                .logo img {
+                    height: 50px; /* Adjust height of the logo */
+                    width: auto; /* Auto width to maintain aspect ratio */
+                    display: block;
+                    margin-left: 20px;
+                }
+
+                nav {
+                    display: flex; /* Flexbox to align logo and links horizontally */
+                    align-items: center; /* Vertically align logo and links */
+                    justify-content: space-between; /* Push the links to the right side */
+                }
+
+            /* Navbar links */
+                nav ul {
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+                    display: flex; /* Flexbox for horizontal alignment of links */
+                    align-items: center; /* Vertically align the links with the logo */
+                }
+
+                nav ul li {
+                    margin-left: 10px; /* Space between each link */
+                    margin-right: 10px;
+                }
+
+                nav ul li a {
+                    color: white; /* White text for navigation links */
+                    text-decoration: none;
+                    font-weight: bold;
+                }
+
+                nav ul li a:hover {
+                    color: red; /* Red hover effect on navigation links */
+                }
+
+                /* Hamburger Menu */
+                .menu-toggle {
+                    display: none;
+                    flex-direction: column;
+                    cursor: pointer;
+                    padding: 10px;
+                    background-color: transparent; 
+                }
+
+                .menu-toggle span {
+                    height: 3px;
+                    width: 25px;
+                    color: black;
+                    margin: 3px;
+                    border-radius: 5px;
+                    background-color: white;
+                }
+
+                /* Responsive Menu for Smaller Screens */
+                @media (max-width: 768px) {
+                    nav ul {
+                        display: none; /* Hide the menu by default */
+                        flex-direction: column; /* Stack the items vertically */
+                        width: 100%; /* Make the menu take up full width */
+                        position: absolute; /* Position it as a dropdown */
+                        top: 60px; /* Below the navbar */
+                        left: 0;
+                        background-color: black; /* Same background as navbar */
+                    }
+
+                    nav ul li {
+                        text-align: center;
+                        margin: 15px 0; /* Add spacing between items */
+                    }
+
+                    .menu-toggle {
+                        display: flex; /* Show the hamburger menu on smaller screens */
+                    }
+
+                    /* Show the menu when it's toggled */
+                    nav ul.active {
+                        display: flex;
+                    }
+                }
+
+            /* Contact Section */
+                /* Contact Container for Flex Layout */
+                .contact-container {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 50px;
+                    max-width: 1200px;
+                    margin: 0 auto;
+                    margin-top: 20px;
+                    height: 80vh;
+                }
+
+                /* Contact Form (Left) */
+                .contact-form {
+                    width: 45%; /* Take 45% of the width */
+                    padding-right: 20px; /* Add some space between form and info section */
+                }
+
+                .contact-form h2 {
+                    color: red;
+                    margin-bottom: 20px;
+                }
+
+                .contact-form label {
+                    display: block;
+                    margin-bottom: 10px;
+                    font-weight: bold;
+                    color: black;
+                }
+
+                .contact-form input, .contact-form textarea {
+                    width: 100%;
+                    padding: 10px;
+                    margin-bottom: 15px;
+                    border: 1px solid #ddd;
+                    border-radius: 4px;
+                    box-sizing: border-box;
+                    background-color: lightgrey;
+                }
+
+                .contact-form button {
+                    background-color: red;
+                    color: white;
+                    padding: 10px 20px;
+                    border: none;
+                    cursor: pointer;
+                    border-radius: 4px;
+                }
+
+                .contact-form button:hover {
+                    background-color: #ff4d4d;
+                }
+
+                /* Contact Info (Right) */
+                .contact-info {
+                    width: 45%; /* Take 45% of the width */
+                    padding-left: 20px;
+                    background-color: lightgray; /* Light background color for contact info section */
+                    padding: 20px;
+                    border-radius: 10px;
+                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+                    text-align: left;
+                }
+
+                .contact-info h2 {
+                    color: red;
+                    margin-bottom: 20px;
+                    margin-left: 5px;
+                }
+
+                .contact-info p {
+                    font-size: 16px;
+                    margin-bottom: 15px;
+                    margin-left: 5px;
+                }
+
+                /* Responsive Design for Smaller Screens */
+                @media (max-width: 768px) {
+                    .contact-container {
+                        flex-direction: column;
+                        align-items: flex-start; /* Reset alignment */
+                        height: auto; /* Ensure the height auto-adjusts on small screens */
+                    }
+
+                    .contact-form, .contact-info {
+                        width: 100%; /* Full width on smaller screens */
+                        padding: 0;
+                        margin-bottom: 20px; /* Add space between form and contact info */
+                    }
+                }
+
+                select {
+                    padding: 10px;
+                    margin-bottom: 10px;
+                    border: 1px solid #ddd;
+                    border-radius: 4px;
+                    background-color: lightgray;
+                    color: black;
+                    width: 100%;
+                }
+                
+                /* Footer Styling */
+                footer {
+                    background-color: black;
+                    padding: 20px;
+                    text-align: center;
+                    color: white;
+                    position: relative;
+                    bottom: 0;
+                    width: 100%;
+                }
+
+                .footer-container {
+                    display: flex;
+                    justify-content: center;
+                    gap: 20px;
+                    flex-wrap: wrap;
+                }
+
+                .footer-btn {
+                    display: flex;
+                    align-items: center;
+                    color: white;
+                    text-decoration: none;
+                    font-size: 16px;
+                    padding: 10px;
+                }
+
+                .footer-btn img {
+                    width: 24px;
+                    height: 24px;
+                    margin-right: 10px;
+                }
+
+                .footer-btn:hover {
+                    color: #ff4d4d;
+                }
+
+                /* Responsive Footer for Small Screens */
+                @media (max-width: 768px) {
+                    .footer-container {
+                        flex-direction: column; /* Stack items vertically on smaller screens */
+                        align-items: center;
+                    }
+
+                    .footer-btn {
+                        font-size: 14px; /* Reduce the size for smaller screens */
+                        padding: 8px;
+                    }
+
+                    .footer-btn img {
+                        width: 20px; /* Resize icons for smaller screens */
+                        height: 20px;
+                    }
+
+                    footer p {
+                        margin-bottom: 10px; /* Add space between the copyright and buttons */
+                    }
+                }
+        </style>
+    </head>
+<body>
+    <!-- Navigation (Link back to the home page) -->
+    <header>
+        <nav>
+            <a href="../static/index.html" class="logo">
+                <img src="../static/imgs/logo.png" alt="Your Logo">
+            </a>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul id="navbarLinks">
+                <li><a href="../static/index.html#who-we-are">About Us</a></li>
+                <li><a href="../static/index.html#what-we-sell">Services</a></li>
+                <li><a href="../static/index.html#suppliers">Suppliers</a></li>
+                <li><a href="../static/index.html#account-manager">Meet Anna</a></li>
+                <li><a href="contact.html">Get a Quote</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="contact-container">
+            <div class="contact-form">
+                <h2>Get a Free Quote</h2>
+                <!-- Flash message for form submission status -->
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        <ul>
+                            {% for category, message in messages %}
+                                <li class="{{ category }}">{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endwith %}
+                <form id="contactForm" action="/send-email" method="POST">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    
+                    <label for="number">Phone Number:</label>
+                    <input type="tel" id="number" name="number" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890">
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <!-- Dropdown for selecting the service -->
+                    <label for="service">Desired Service:</label>
+                    <select id="service" name="service" required>
+                        <option value="" disabled selected>Select a service</option>
+                        <option value="screen-printing">Screen Printing</option>
+                        <option value="embroidery">Embroidery</option>
+                        <option value="graphic-logo-design">Graphic & Logo Design</option>
+                        <option value="custom-signs-banners">Custom Signs & Banners</option>
+                        <option value="engravings">Engravings</option>
+                        <option value="online-store">Online Store</option>
+                        <option value="other">Other/Unsure</option>
+                    </select>
+                    
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" required></textarea>
+                    
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+            <div class="contact-info">
+                <h2>Contact Us</h2>
+                <p><strong>Phone:</strong> (902) 422-4771</p>
+                <p><strong>Email:</strong> orders@theshopap.com</p>
+                <p><strong>Address:</strong> 210 Tower Dr <br>Black Creek, WI 54106</p>
+                <p><strong>Business Hours:</strong> By appointment only <br>Monday - Friday: 8am - 6pm<br>Saturday: 8am - 3pm</p>
+            </div>
+        </div>
+    </section>
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <p style="margin-left: 5px;">&copy; 2024 The Shop Apparel and Promos</p>
+            <a href="https://www.facebook.com/people/The-Shop-Apparel-and-Promos/61556106218879/" target="_blank" class="footer-btn">
+                <img src="../static/imgs/facebook.svg" alt="Facebook Icon" />
+            </a>
+            <a href="mailto:orders@theshopap.com" class="footer-btn">
+                <img src="../static/imgs/email.svg" alt="Email Icon" />
+            </a>
+            <a href="tel:+9024224771" class="footer-btn">
+                <img src="../static/imgs/call.svg" alt="Call Icon" />
+            </a>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="../scripts.js"></script>
+</body>
+</html>

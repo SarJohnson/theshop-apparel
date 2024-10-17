@@ -1,0 +1,544 @@
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: white; /* White background for the entire site */
+    color: black; /* Default text color */
+}
+
+/* Navigation */
+header {
+    background-color: black; /* Black background for navbar */
+    padding: 10px 0;
+    text-align: center;
+    position: fixed; /* Pin the navbar to the top */
+    top: 0; /* Align the navbar to the top of the viewport */
+    width: 100%; /* Ensure the navbar spans the full width */
+    z-index: 1000; /* Ensure the navbar stays above other content */
+}
+
+/* Style for the logo */
+.logo img {
+    height: 50px; /* Adjust height of the logo */
+    width: auto; /* Auto width to maintain aspect ratio */
+    display: block;
+    margin-left: 20px;
+}
+
+nav {
+    display: flex; /* Flexbox to align logo and links horizontally */
+    align-items: center; /* Vertically align logo and links */
+    justify-content: space-between; /* Push the links to the right side */
+}
+
+/* Navbar links */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Flexbox for horizontal alignment of links */
+    align-items: center; /* Vertically align the links with the logo */
+}
+
+nav ul li {
+    margin-left: 10px; /* Space between each link */
+    margin-right: 10px;
+}
+
+nav ul li a {
+    color: white; /* White text for navigation links */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: red; /* Red hover effect on navigation links */
+}
+
+/* Hamburger Menu */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 10px;
+    background-color: transparent;
+}
+
+.menu-toggle span {
+    height: 3px;
+    width: 25px;
+    color: black;
+    background-color: white;
+    margin: 3px;
+    border-radius: 5px;
+}
+
+/* Responsive Menu for Smaller Screens */
+@media (max-width: 768px) {
+    nav ul {
+        display: none; /* Hide the menu by default */
+        flex-direction: column; /* Stack the items vertically */
+        width: 100%; /* Make the menu take up full width */
+        position: absolute; /* Position it as a dropdown */
+        top: 60px; /* Below the navbar */
+        left: 0;
+        background-color: black; /* Same background as navbar */
+    }
+
+    nav ul li {
+        text-align: center;
+        margin: 15px 0; /* Add spacing between items */
+    }
+
+    .menu-toggle {
+        display: flex; /* Show the hamburger menu on smaller screens */
+    }
+
+    /* Show the menu when it's toggled */
+    nav ul.active {
+        display: flex;
+    }
+}
+
+/* Hero Section */
+.hero {
+    padding-top: 100px;
+    height: 100vh;
+    background-color: white; /* white background for the hero section */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: black; /* black text in the hero section */
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+#shopNowBtn {
+    padding: 10px 20px;
+    background-color: red; /* Red button for a call-to-action */
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 4px;
+}
+
+#shopNowBtn:hover {
+    background-color: #ff4d4d; /* Lighter red on hover */
+}
+
+/* Curly lines */
+.curly-lines {
+    width: 100%; /* Full width of the page */
+    margin: 40px 0; /* Space between the button and the lines */
+}
+
+.curly-lines svg {
+    width: 100%; /* Stretch each curly line across the full width of the page */
+    height: 40px; /* Adjust the height of the curly lines */
+    display: block; /* Ensure each line is on its own row */
+    margin: 10px 0; /* Spacing between curly lines */
+}
+
+/* Who We Are Section */
+#who-we-are {
+    padding: 60px 20px;
+    text-align: center;
+    position: relative;
+}
+
+.who-we-are-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: red;
+    margin-bottom: 20px;
+}
+
+.highlight-text {
+    font-size: 1.4em;
+    color: black;
+    margin-bottom: 30px;
+}
+
+.highlight {
+    color: red;
+    font-weight: bold;
+}
+
+.sell-icons {
+    display: flex;
+    justify-content: space-around;
+    margin: 30px 0;
+}
+
+.sell-item {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-in-out forwards;
+    margin: 15px;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.sell-item img {
+    width: auto;
+    border-radius: 10px;
+    height: 150px;
+    transition: transform 0.3s;
+}
+
+.sell-item img:hover {
+    transform: scale(1.1);
+}
+
+.sell-item p {
+    font-size: 1.1em;
+    color: black;
+    margin-top: 10px;
+}
+
+.additional-info {
+    font-size: 1.2em;
+    color: black;
+}
+
+@media (max-width: 768px) {
+    .sell-icons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sell-item {
+        margin-bottom: 20px;
+    }
+}
+
+/* Services Section */
+#services-and-suppliers {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px;
+    gap: 20px; /* Add space between the two columns */
+}
+
+#services-and-suppliers h2 {
+    color: red;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+/* Left column (Services) */
+.left-column {
+    flex: 1;
+    max-width: 600px; /* Limit width for the services section */
+}
+
+.left-column h2 {
+    text-align: center;
+}
+
+/* Right column (New section) */
+.right-column {
+    flex: 1;
+    max-width: 500px;
+}
+
+.right-column h2 {
+    text-align: center;
+}
+
+.service-item h3 {
+    margin-bottom: 10px;
+    color: red;
+}
+
+.service-item {
+    display: flex; /* Ensure icon and text are in a row */
+    flex-direction: column;
+    align-items: center; /* Vertically align icon and text */
+    justify-content: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: lightgray;
+    color: black;
+    transition: transform 0.3s ease;
+    clip-path: ellipse(70% 50% at 50% 50%); /* Use an ellipse to create a blob effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add a shadow for depth */
+    width: 100%; /* Ensure each item takes up full width */
+    max-width: 600px; /* Limit the width of the items */
+    margin: 0 auto 30px; /* Center the items horizontally */
+}
+
+.service-item:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.service-icon {
+    width: 60px; /* Increased size for better visibility */
+    height: auto;
+    margin-bottom: 10px; /* Space between icon and title */
+}
+
+.service p {
+    font-size: 18px;
+    margin: 0;
+    padding-top: 10px;
+    text-align: center; /* Center the text */
+}
+
+@media (max-width: 768px) {
+    #services-and-suppliers {
+        flex-direction: column; /* Stack columns on smaller screens */
+    }
+
+    .left-column,
+    .right-column {
+        width: 100%; /* Full width on small screens */
+        max-width: 100%;
+    }
+
+    .service-item {
+        width: 90%; /* Take up most of the screen width on smaller devices */
+    }
+
+    .account-manager {
+        margin-top: 40px;
+    }
+}
+
+/* Suppliers Grid Layout */
+.suppliers-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+/* Individual supplier circle */
+.supplier-item {
+    width: 200px;
+    height: 200px;
+    border-radius: 30%;
+    background-color: lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.supplier-item:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+.supplier-item img {
+    height: auto;
+    object-fit: contain; /* Ensures the image aspect ratio is maintained */
+}
+
+/* Adjust individual supplier image sizes */
+.supplier-item[data-supplier="ssactivewear"] img {
+    width: 100px; /* Set specific width for SS Activewear */
+}
+
+.supplier-item[data-supplier="sanmar"] img {
+    width: 160px; /* Set specific width for SanMar */
+}
+
+.supplier-item[data-supplier="hitpromo"] img {
+    width: 160px; /* Set specific width for Hit Promotional Products */
+}
+
+.supplier-item[data-supplier="alphabroder"] img {
+    width: 140px; /* Set specific width for Alphabroder */
+}
+
+.supplier-item[data-supplier="augustsportswear"] img {
+    width: 130px; /* Set specific width for Augusta Sportswear */
+}
+
+.supplier-item[data-supplier="ordermygear"] img {
+    width: 140px; /* Set specific width for OrderMyGear */
+}
+
+/* Meet Our Account Manager Section */
+.account-manager {
+    text-align: center;
+    scroll-padding-top: 80px; 
+    margin-top: 100px;
+    padding: 20px;
+    background-color: lightgray;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Manager Photo Styling */
+.manager-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+/* Animation for sections appearing on scroll */
+section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Modal Styling */
+#modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Modal link styled like a button */
+#modal-link {
+    display: inline-block;
+    background-color: red;
+    color: white;
+    text-decoration: none; /* Remove the underline */
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 20px; /* Space between the description and the link */
+    cursor: pointer; /* Pointer to indicate clickability */
+}
+
+#modal-link:hover {
+    background-color: #ff4d4d; /* Lighter red on hover */
+}
+
+/* Modal content styling */
+#modal-content {
+    position: absolute; /* Position relative to the parent container (#modal) */
+    top: 50%; /* Align vertically */
+    left: 50%; /* Align horizontally */
+    transform: translate(-50%, -50%); /* Adjust vertical centering */
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 500px;
+    width: 90%; /* Make the modal content responsive */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
+    z-index: 1001; /* Ensure the modal content is on top */
+}
+
+/* X button styling */
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px; /* Bigger X */
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+}
+
+.modal-close:hover {
+    color: red; /* Subtle color change on hover, or keep it black */
+    background: none; /* Ensure no background color on hover */
+    border: none; /* Ensure no border on hover */
+}
+
+/* Footer Styling */
+footer {
+    background-color: black;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-btn {
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px;
+}
+
+.footer-btn img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.footer-btn:hover {
+    color: #ff4d4d;
+}
+
+/* Responsive Footer for Small Screens */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        align-items: center;
+    }
+
+    .footer-btn {
+        font-size: 14px; /* Reduce the size for smaller screens */
+        padding: 8px;
+    }
+
+    .footer-btn img {
+        width: 20px; /* Resize icons for smaller screens */
+        height: 20px;
+    }
+
+    footer p {
+        margin-bottom: 10px; /* Add space between the copyright and buttons */
+    }
+}
