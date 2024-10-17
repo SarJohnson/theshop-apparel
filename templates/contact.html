@@ -11,7 +11,7 @@
         <link rel="icon" href="../static/imgs/favicon-16x16.png" sizes="16x16" type="image/png">
         <!-- Favicon for Apple devices -->
         <link rel="apple-touch-icon" href="../static/imgs/apple-touch-icon.png">
-        <title>Apparel Store</title>
+        <title>The Shop</title>
         <style>
             /* General Styling */
                 body {
@@ -78,16 +78,16 @@
                     flex-direction: column;
                     cursor: pointer;
                     padding: 10px;
-                    background-color: transparent; 
+                    background-color: transparent;
                 }
 
                 .menu-toggle span {
                     height: 3px;
                     width: 25px;
                     color: black;
+                    background-color: white;
                     margin: 3px;
                     border-radius: 5px;
-                    background-color: white;
                 }
 
                 /* Responsive Menu for Smaller Screens */
@@ -360,6 +360,13 @@
     </footer>
     
     <!-- JavaScript -->
-    <script src="../scripts.js"></script>
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navbarLinks = document.getElementById('navbarLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navbarLinks.classList.toggle('active'); // Toggle the active class
+        });
+    </script>
 </body>
 </html>
