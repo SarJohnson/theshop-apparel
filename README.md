@@ -1,2 +1,0 @@
-# theshop-apparel
- 
